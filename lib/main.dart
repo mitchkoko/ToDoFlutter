@@ -3,8 +3,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'pages/home_page.dart';
 
 void main() async {
-  // init the hive
-  await Hive.initFlutter();
+
+  WidgetsFlutterBinding.ensureInitialized();
+    // init the hive
+  await Hive.initFlutter(getApplicationDocumentsDirectory().toString());
 
   // open a box
   var box = await Hive.openBox('mybox');
