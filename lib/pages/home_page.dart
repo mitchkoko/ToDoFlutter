@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   // save new task
-  void saveNewTask() {
+  void saveNewTask(BuildContext context) {
     setState(() {
       db.toDoList.add([_controller.text, false]);
       _controller.clear();
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
       builder: (context) {
         return DialogBox(
           controller: _controller,
-          onSave: saveNewTask,
+          onSave: () => saveNewTask(context),
           onCancel: () => Navigator.of(context).pop(),
         );
       },
